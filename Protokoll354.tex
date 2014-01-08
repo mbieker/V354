@@ -1,11 +1,14 @@
-\documentclass[11pt]{article}
+\documentclass[11pt,ngerman,a4paper]{article}
 %Gummi|061|=)
 \usepackage{amsmath}
+\usepackage{a4wide}
 \usepackage{amsthm}
 \usepackage{amsbsy}
 \usepackage{amssymb}
 \usepackage{inputenc}
+\usepackage{rotating} 
 \usepackage{graphicx}
+\usepackage{paralist}
 \usepackage{selinput}
 \SelectInputMappings{%
 adieresis={ä},
@@ -42,20 +45,22 @@ F O R M E L
 \subsection{Messung der Frequenzabhängigkeit der Kondensatorspannung}
 \subsection{Bestimmung der Frequenzabhängigkeit der Phase}
 \section{Auswertung}
-Hier folgt die Auswertung.
-Das ist eine geeignete Tabelle mit 5 Spalten:
-\begin{table}[h]
-\centering
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-$\varphi[^\circ]$ & $\varphi [rad]$ & $F [N]$ & $M [N]$ & $ D [\frac{Nm}{rad}]$ \\
-\hline
-20.0 & 0.349 & 0.1 & 0.01 & 0.0286\\
-40.0 & 0.698 & 0.2 & 0.02 & 0.0286\\
-\hline
-\end{tabular}
-\caption{Benennung der Tabelle}
-\end{table}
+\subsection{Bestimmung der Zeitkonstante}
+Abbildung \ref{abb1} zeigt den Verlauf der Spannung $U_C$ zwischen den Platten des Kondensators unmittelbar nach dem Abschalten der Aufladespannung. 
+
+==========
+
+In der Tabelle \ref{mtab1} finden sich die lokalen Extrema des Spannungsverlaufs. Abbildung \ref{mabb2} ist eine halb-logarithmische Darstellung dieser Werte. In diesem Diagramm liegen die Messpunkte entlang der Geraden
+\begin{equation}
+ln(\frac{U_C}{V}) = -\frac{1}{RC}\cdot t + ln(U_0).
+\end{equation}
+Durch eine lineare Regression ergeben sich folgende Werte:
+\begin{itemize}
+\item $\frac{1}{RC} = ....\,\frac{1}{s}$
+\end{itemize}
+\subsection{Bestimmung des Grenzwiderstands}
+\subsection{Bestimmung der Resonanzfrequenz}
+\subsection{Bestimmung der Phasenverschiebung}
 \section{Diskussion}
 Hier kommt die Diskussion hin.
 \section{Literatur- und Abbildungsverzeichnis}

@@ -7,7 +7,7 @@ Created on Mon Jan  6 19:48:55 2014
 
 import csv
 from numpy import *
-import matplotlib
+import matplotlib.pyplot as plt
 from uncertainties import  ufloat
 
 def load_scope(path, scale = True):
@@ -166,11 +166,11 @@ max_= array(tmp).T
 min_ = min_.T
 
 # Erste Grafik erzeugen
-close()
-plot(time, voltage , 'k-')
-plot(max_[0],max_[1] ,'ko', markersize=5)
-plot(min_[0],min_[1] ,'ko',  markersize=5)
-show()
+plt.close()
+plt.plot(time, voltage , 'k-')
+plt.plot(max_[0],max_[1] ,'ko', markersize=5)
+plt.plot(min_[0],min_[1] ,'ko',  markersize=5)
+plt.show()
 
 # extrema zu einer liste hinzufügen und minima spigeln
 
@@ -180,7 +180,26 @@ regression_times = max_[0]
 regression_voltages =max_[1]
 print(lin_reg(regression_times,log(regression_voltages)))
 
-close()
-plot(regression_times,log(regression_voltages), 'x')
+plt.close()
+plt.plot(regression_times,log(regression_voltages), 'x')
 
-show()
+plt.show()
+
+
+
+# Aufgabe c Resonanz
+
+#Daten laden
+
+data = loadtxt("./Messwerte/resonanz", unpack='true')
+
+amplitude = data[2]/data[1]
+freq = data[0]* 1000
+
+plt.close()
+plt.plot(freq,amplitude, 'x')
+plt.show()
+
+
+
+### Phasenverschiebung  bestimmen 
