@@ -65,7 +65,7 @@ def peakdet(v, delta, x = None):
     mn, mx = Inf, -Inf
     mnpos, mxpos = NaN, NaN
     
-    lookformax = True
+    lookformax = False
     
     for i in arange(len(v)):
         this = v[i]
@@ -167,24 +167,48 @@ min_ = min_.T
 
 # Erste Grafik erzeugen
 plt.close()
-plt.plot(time, voltage , 'k-')
-plt.plot(max_[0],max_[1] ,'ko', markersize=5)
-plt.plot(min_[0],min_[1] ,'ko',  markersize=5)
-plt.show()
-
+plt.plot(time*1000, voltage , 'k-', label = "Messwerte")
+plt.plot(max_[0]*1e3,max_[1] ,'ro', markersize=5, label="Lokale Maxima")
+plt.xlabel("t [ms]")
+plt.ylabel("$U_C$ [V]",rotation='horizontal')
+plt.xlim(0,time[-1]*1000)
+plt.legend()
+plt.savefig("./Abb/abb1.png")
 # extrema zu einer liste hinzufügen und minima spigeln
 
 
 
 regression_times = max_[0]
 regression_voltages =max_[1]
-print(lin_reg(regression_times,log(regression_voltages)))
+print(make_LaTeX_table(array([regression_times*1e3,regression_voltages,[round(log(i),3) for i in regression_voltages]]).T,[r"$\frac{t}{ms}$",r"$\frac{U_C}{V}$",r"$ln(\frac{U_C}{V})$"],flip= 'false'))
 
 plt.close()
-plt.plot(regression_times,log(regression_voltages), 'x')
+plt.plot(1e3*regression_times,log(regression_voltages), 'x')
 
-plt.show()
+m,b = lin_reg(regression_times,log(regression_voltages))
+print('m=%s'%str(m))
+T_ex = -1/m
+L= ufloat(10.11,0.03)*1e-3
+C = ufloat(2.093,0.003)*1e-9
+print("T_ex = 1/m = %s" % str(T_ex))
+print("R = 2L/T_ex = %s" % str(2*L/T_ex))
 
+ 
+t = linspace(0,0.0005)
+
+plt.plot(1e3*t,m.n * t +b.n )
+plt.xlabel('t [ms]')
+plt.ylabel(r'$ln(\frac{U_C}{V})$',rotation='horizontal')
+plt.savefig('abb2.png')
+
+print('#####################')
+##### Berechnung des Aperiodischen Grenzfalls
+
+R_apexp = ufloat(3220,20)
+
+R_ap = (4*L/C)**0.5
+
+print('Gemessener Wert: %s und berechneter Wert: %s' % (R_apexp,R_ap))
 
 
 # Aufgabe c Resonanz
@@ -197,9 +221,37 @@ amplitude = data[2]/data[1]
 freq = data[0]* 1000
 
 plt.close()
-plt.plot(freq,amplitude, 'x')
-plt.show()
+plt.plot(freq*1e-3,amplitude, 'x')
+plt.xlabel('f [kHz]')
+plt.ylabel(r'$\frac{U_C}{U_0}$', rotation='horizontal')
+
+
 
 
 
 ### Phasenverschiebung  bestimmen 
+file_id = ['03','04','05','06','07','08','09','10','11','12','13','14','15','16','17']
+cnt_1 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+cnt_2 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+freq = array([ 5000*i for i in range(2,17)])
+for i in range(0,15):
+    
+    time , ch1 = load_scope('./Messwerte/ALL00%s/F00%sCH1.CSV' % (file_id[i],file_id[i]))
+    time , ch2 = load_scope('./Messwerte/ALL00%s/F00%sCH2.CSV'% (file_id[i],file_id[i]))
+
+    max_1,min_1 = peakdet(ch1,0.3,time)
+    max_2, min_2 = peakdet(ch2,0.1, time)
+    plt.close()
+    plt.plot(time,ch1, 'r')
+    plt.plot(time, ch2, 'g')
+    plt.plot(max_1.T[0],max_1.T[1],'o')
+    plt.plot(max_2.T[0],max_2.T[1],'o')
+    plt.show()
+    delta_t = abs(max_1[cnt_1[0]][0] - max_2[cnt_2[0]][0])
+    delta_phase = delta_t*freq[i]*360
+    print("Phasenverschiebung Nr %i : %s " % (i , str(delta_phase%180)))
+
+###In Abaengigkeit von der Frequenz
+
+
+print(freq)
