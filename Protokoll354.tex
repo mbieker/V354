@@ -57,6 +57,28 @@ Für den aperiodischen Grenzfall lautet die Lösung
 \label{LSG2}
 I(t) = A e^{- \frac{t}{\sqrt{LC}}}.
 \end{equation}
+Um einen theoretischen Dämpfungswiderstand am aperiodischen Grenzfall zu berechnen, wird
+\begin{equation}
+\label{aper}
+R_{ApThe} = \sqrt{\frac{4L}{C}}
+\end{equation} verwendet.
+Der theoretische Wert einer Resonanzfrequenz ist durch
+\begin{equation}
+f_res = \frac1{2\pi} \sqrt{\frac{1}{LC}-\frac{R^2}{2L^2}}
+\label{frequenz}
+\end{equation}
+Die Güte eines Schwingkreises kann mit
+\begin{equation}
+q = \frac{1}{R} \sqrt{\frac{L}{C}}
+\label{gute}
+\end{equation}
+errechnet werden.
+Die Breite einer Resonanzkurve ist mit
+\begin{equation}
+f_+ - f_- \approx \frac{R}{L}
+\label{breite}
+\end{equation}
+gegeben.
 \section{Aufbau und Durchf\"{u}hrung}
 Die Schaltung des elektrischen Schwingkreises ist fest aufgebaut. Es stehen mehrere Widerstände zur Verfügung, davon ein Potentiometer. Ein Signalgenerator wird benutzt, um das System anzuregen. Für die Messungen wird ein digitales Speicheroszilloskop verwendet.
 \subsection{Untersuchung der Zeitabhängigkeit der Amplitude}
@@ -118,7 +140,7 @@ Durch eine lineare Regression ergeben sich folgende Werte:
 \end{itemize}
 Der Fehler von $\frac{1}{RC}$ folgt aus der linearen Regression.
 \subsection{Bestimmung des Grenzwiderstands}
-Zur Bestimmung des Dämpfungswiderstands, der zum aperiodischen Grenzfall führt, wurde das Potentiometer zunächst auf sein Maximum eingestellt. Zu sehen war ein Kriechfall. Dann wurde der Widerstand vorsichtig verkleinert. Nach Erscheinen eines Überschwingens war der Widerstand bereits zu klein. So genau wie möglich wurde dann der Grenzwiderstand angenähert. Er liegt bei $(3220 \pm 20) \, \Omega$. Der Zustand der Schwingung (aperiodischer Grenzfall) ist gut in Abbildung \ref{apgrenzfall} zu erkennen. Aus den Größen L und C lässt sich mit der Formel EINFÜGEN der theoretischen Wert berechnen: $(4396\pm7)\,\Omega$. Die Abweichung des experimentell bestimmten Wertes zum Theoriewert lässt sich mit der Ungenauigkeit der Messung erklären. Es ist nur grob abzuschätzen, wann der aperiodische Grenzfall eintritt. Individuelle Einstellungen am Oszilloskop erschweren dieses Problem.
+Zur Bestimmung des Dämpfungswiderstands, der zum aperiodischen Grenzfall führt, wurde das Potentiometer zunächst auf sein Maximum eingestellt. Zu sehen war ein Kriechfall. Dann wurde der Widerstand vorsichtig verkleinert. Nach Erscheinen eines Überschwingens war der Widerstand bereits zu klein. So genau wie möglich wurde dann der Grenzwiderstand angenähert. Er liegt bei $(3220 \pm 20) \, \Omega$. Der Zustand der Schwingung (aperiodischer Grenzfall) ist gut in Abbildung \ref{apgrenzfall} zu erkennen. Aus den Größen L und C lässt sich mit der Formel \ref{aper} der theoretischen Wert berechnen: $(4396\pm7)\,\Omega$. Die Abweichung des experimentell bestimmten Wertes zum Theoriewert lässt sich mit der Ungenauigkeit der Messung erklären. Es ist nur grob abzuschätzen, wann der aperiodische Grenzfall eintritt. Individuelle Einstellungen am Oszilloskop erschweren dieses Problem.
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{apgrenzfall.png}
@@ -145,7 +167,7 @@ eine Gerade einf\"uegt. Die Frequenzen $f_+$ und $f_-$ bei denen $\frac{U_C}{U_0
 \end{itemize}
 
 \noindent
-Der theoretische Wert der Resonanzfrequenz ist durch Formel X durch
+Der theoretische Wert der Resonanzfrequenz ist durch Formel \ref{frequenz} durch
 \[
 f_res = \frac1{2\pi} \sqrt{\frac{1}{LC}-\frac{R^2}{2L^2}}
 \]
@@ -154,11 +176,11 @@ $R_{eff}$ ergibt sich
 \[
 f_{res} = ...\,Hz
 \]
-Die G\"ute $q$ des eines Schwingkreises kann mit Formel \ref{} zu
+Die G\"ute $q$ eines Schwingkreises kann mit Formel \ref{gute} zu
 \[
 q = \frac{1}{R} \sqrt{\frac{L}{C}} = ... 
 \]
-berechnet werden. Die Breite der Resonanzkurve sollte nach Formel \ref{}
+berechnet werden. Die Breite der Resonanzkurve sollte nach Formel \ref{breite}
 \[
 f_+ - f_- \approx \frac{R}{L}
 \]
