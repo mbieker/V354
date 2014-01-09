@@ -9,6 +9,7 @@ import csv
 from numpy import *
 import matplotlib.pyplot as plt
 from uncertainties import  ufloat
+from scipy.optimize import curve_fit
 
 def load_scope(path, scale = True):
     data = open(path,'rb')
@@ -160,10 +161,7 @@ time, voltage = load_scope('./Messwerte/ALL0000/F0000CH1.CSV')
 voltage = voltage -10.2 #offset aus CSV File
 max_ , min_ = peakdet(voltage, 1, time )
 
-tmp =list(max_)
-tmp.pop(0)
-max_= array(tmp).T
-min_ = min_.T
+max_ = max_.T
 
 # Erste Grafik erzeugen
 plt.close()
@@ -220,11 +218,17 @@ data = loadtxt("./Messwerte/resonanz", unpack='true')
 amplitude = data[2]/data[1]
 freq = data[0]* 1000
 
+max_res, min_res = peakdet(amplitude,1.0,freq)
+bar = max_res[0][1]/sqrt(2)
+x = linspace(0,90)
+print('Resonanzfrequenz: %s und Guete des Schwingkreises: %s' % (str(max_res[0][0]),str(max_res[0][1])))
+print()
 plt.close()
 plt.plot(freq*1e-3,amplitude, 'x')
+plt.plot(x,bar+0*x)
 plt.xlabel('f [kHz]')
 plt.ylabel(r'$\frac{U_C}{U_0}$', rotation='horizontal')
-
+plt.show()
 
 
 
@@ -233,25 +237,30 @@ plt.ylabel(r'$\frac{U_C}{U_0}$', rotation='horizontal')
 file_id = ['03','04','05','06','07','08','09','10','11','12','13','14','15','16','17']
 cnt_1 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 cnt_2 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+phase = []
 freq = array([ 5000*i for i in range(2,17)])
-for i in range(0,15):
+def cos_fit(t, A, w , phi):
+    return A* cos(t*w+phi)
     
+for i in range(0,15):
     time , ch1 = load_scope('./Messwerte/ALL00%s/F00%sCH1.CSV' % (file_id[i],file_id[i]))
     time , ch2 = load_scope('./Messwerte/ALL00%s/F00%sCH2.CSV'% (file_id[i],file_id[i]))
-
     max_1,min_1 = peakdet(ch1,0.3,time)
     max_2, min_2 = peakdet(ch2,0.1, time)
-    plt.close()
-    plt.plot(time,ch1, 'r')
-    plt.plot(time, ch2, 'g')
-    plt.plot(max_1.T[0],max_1.T[1],'o')
-    plt.plot(max_2.T[0],max_2.T[1],'o')
-    plt.show()
-    delta_t = abs(max_1[cnt_1[0]][0] - max_2[cnt_2[0]][0])
+
+    delta_t = max_1[cnt_1[0]][0] - max_2[cnt_2[0]][0]
     delta_phase = delta_t*freq[i]*360
-    print("Phasenverschiebung Nr %i : %s " % (i , str(delta_phase%180)))
+    phase.append(delta_phase)
+print phase
 
-###In Abaengigkeit von der Frequenz
+
+plt.close()
+plt.plot(freq/1000,phase, 'x' , label= "Messwerte")
+plt.xlabel('Frequenz [kHz] ')
+plt.ylabel(r'$\Delta \varphi [\circ]$')
+plt.yscale('log')
+plt.show()
 
 
-print(freq)
+
+    
