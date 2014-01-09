@@ -189,15 +189,24 @@ T_ex = -1/m
 L= ufloat(10.11,0.03)*1e-3
 C = ufloat(2.093,0.003)*1e-9
 print("T_ex = 1/m = %s" % str(T_ex))
-print("R = 2L/T_ex = %s" % str(2*L/T_ex))
+R_eff = 2*L/T_ex
+print("R = 2L/T_ex = %s" % str(R_eff))
 
- 
+f_1res =  1/(2*pi)* (1/(L*C)- R_eff**2/(2*L**2))**0.5
+q = 1/R_eff * (L/C)**0.5
+breit = R_eff/ L 
+f_1 = 1/(2*pi)*(-R_eff/(2*L)+(R_eff**2/(4*L**2)+1/(L*C))**0.5)
+f_2 = 1/(2*pi)*(R_eff/(2*L)+(R_eff**2/(4*L**2)+1/(L*C))**0.5)
+print('Guetfaktor: %s' % q)
+print('Resonanzfrequez 1: %s' % f_1res)
+print('Kurvenbreite : %s' % breit)
+print('f_1: %s und f_2: %s'  % (f_1,f_2))
 t = linspace(0,0.0005)
 
 plt.plot(1e3*t,m.n * t +b.n )
 plt.xlabel('t [ms]')
 plt.ylabel(r'$ln(\frac{U_C}{V})$',rotation='horizontal')
-plt.savefig('abb2.png')
+plt.savefig('.\Abb\abb2.png')
 
 print('#####################')
 ##### Berechnung des Aperiodischen Grenzfalls
@@ -229,7 +238,7 @@ plt.plot(x,bar+0*x)
 plt.xlabel('f [kHz]')
 plt.ylabel(r'$\frac{U_C}{U_0}$', rotation='horizontal')
 plt.show()
-
+plt.savefig('.\Abb\abb3.png')
 
 
 
@@ -258,7 +267,7 @@ plt.close()
 plt.plot(freq/1000,phase, 'x' , label= "Messwerte")
 plt.xlabel('Frequenz [kHz] ')
 plt.ylabel(r'$\Delta \varphi [\circ]$')
-plt.yscale('log')
+plt.legend()
 plt.show()
 
 

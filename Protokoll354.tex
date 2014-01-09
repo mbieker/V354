@@ -102,17 +102,25 @@ Abbildung \ref{abb1} zeigt den Verlauf der Spannung $U_C$ zwischen den Platten d
 \end{figure}
 In der Tabelle \ref{mtab1} befinden sich die lokalen Extrema des Spannungsverlaufs. Abbildung \ref{abb2} ist eine halb-logarithmische Darstellung dieser Werte. In diesem Diagramm liegen die Messpunkte entlang der Geraden
 \begin{equation}
-ln(\frac{U_C}{V}) = -\frac{1}{RC}\cdot t + ln(U_0).
+ln(\frac{U_C}{V}) = -\frac{1}{T_{ex}}\cdot t + ln(U_0).
 \end{equation}
 Durch eine lineare Regression ergeben sich folgende Werte:
 \begin{itemize}
-\item $\frac{1}{RC} = (-5820\pm60)\,\frac{1}{s}$
-\item $T_{ex} = RC = (0.0001719\pm0.0000019)\, s$
-\item $R = \frac{2L}{T_{ex}} = (117.6\pm1.3)\, \Omega$.
+\item $\frac{1}{T_{ex}} = (-5820\pm60)\,\frac{1}{s}$
+\item $T_{ex} = (0.0001719\pm0.0000019)\, s$
+\item $R_{eff} = \frac{2L}{T_{ex}} = (117.6\pm1.3)\, \Omega$.
 \end{itemize}
-Der Fehler von $\frac{1}{RC}$ folgt aus der linearen Regression.
+Der in der Schaltung verwendete Widerstand hat eine G\"o\ss e von $(48.1 \pm 0.1)\,\Omega$. Dieser Unterschied kann dadurch erkl\"art werden, dass der experimentell bestimmte Wert des D\"ampfungswiderstands auch Widerst\"ande in den Leitungen und vor allem in den Wicklungen der Spule ber\"ucksichtigt.
 \subsection{Bestimmung des Grenzwiderstands}
-Zur Bestimmung des Dämpfungswiderstands, der zum aperiodischen Grenzfall führt, wurde das Potentiometer zunächst auf sein Maximum eingestellt. Zu sehen war ein Kriechfall. Dann wurde der Widerstand vorsichtig verkleinert. Nach Erscheinen eines Überschwingens war der Widerstand bereits zu klein. So genau wie möglich wurde dann der Grenzwiderstand angenähert. Er liegt bei $(3220 \pm 20) \, \Omega$. Der Zustand der Schwingung (aperiodischer Grenzfall) ist gut in Abbildung \ref{apgrenzfall} zu erkennen. Aus den Größen L und C lässt sich mit der Formel EINFÜGEN der theoretischen Wert berechnen: $(4396\pm7)\,\Omega$. Die Abweichung des experimentell bestimmten Wertes zum Theoriewert lässt sich mit der Ungenauigkeit der Messung erklären. Es ist nur grob abzuschätzen, wann der aperiodische Grenzfall eintritt. Individuelle Einstellungen am Oszilloskop erschweren dieses Problem.
+Zur Bestimmung des Dämpfungswiderstands, der zum aperiodischen Grenzfall führt, wurde das Potentiometer zunächst auf sein Maximum eingestellt. Zu sehen war ein Kriechfall. Dann wurde der Widerstand vorsichtig verkleinert. Nach Erscheinen eines Überschwingens war der Widerstand bereits zu klein. So genau wie möglich wurde dann der Grenzwiderstand angenähert. Er liegt bei 
+\[
+R_{exp}(3220 \pm 20) \, \Omega.
+\]
+ Der Zustand der Schwingung (aperiodischer Grenzfall) ist gut in Abbildung \ref{apgrenzfall} zu erkennen. Aus den Größen L und C lässt sich mit der Formel \ref{} der theoretischen Wert berechnen:
+\[ 
+R_{th} = (4396\pm7)\,\Omega.
+\]
+ Die Abweichung des experimentell bestimmten Wertes zum Theoriewert lässt sich mit der Ungenauigkeit der Messung erklären. Es ist nur grob abzuschätzen, wann der aperiodische Grenzfall eintritt. Individuelle Einstellungen am Oszilloskop erschweren dieses Problem. Auch kann hier analog zum ersten Versuchsteil argumentiert Werden. Da auch in den anderen Bauteilen Widerstande auftreten, ist der am Potentiometer gemessene Widerstand geringer als der berechnete Grenzwiderstand.
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{apgrenzfall.png}
@@ -124,7 +132,7 @@ In Abbildung \ref{resonanz1} ist der Quotient aus der Kondensatorspannung $U_C$ 
 \[
 	f_{res} = 33.7\,kHz.
 \]
-Mit Formel \ref{guete} ist der G\"uetefaktor eines Schwingkreises durch den Wert des Quotienten $\frac{U_C}{U_0}$ im Resonanzfall gegeben. Dieser betr\"agt
+Der G\"uetefaktor eines Schwingkreises durch den Wert des Quotienten $\frac{U_C}{U_0}$ im Resonanzfall gegeben. Dieser betr\"agt
 \[
 q =  3.9
 \]
@@ -134,35 +142,38 @@ Zur Bestimmung der Sch\"arfe der Resonanz wurde in dem Diagramm bei
 \]
 eine Gerade einf\"uegt. Die Frequenzen $f_+$ und $f_-$ bei denen $\frac{U_C}{U_0}$ auf diesen Wert abgefallen ist, k\"onnen somit wie folgt bestimmt werden:
 \begin{itemize}
-\item $f_- = kHz$
-\item $f_+ = kHz$
+\item $f_- \approx 28.5\,kHz$
+\item $f_+ \approx 37.2\,kHz$
 \end{itemize}
-
+Die Breite der Resoanzkurve ist also
+\[
+f_+ - f_- \approx 8.7\,kHz. 
+\]
 \noindent
 Der theoretische Wert der Resonanzfrequenz ist durch Formel X durch
 \[
-f_res = \frac1{2\pi} \sqrt{\frac{1}{LC}-\frac{R^2}{2L^2}}
+f_{res} = \frac1{2\pi} \sqrt{\frac{1}{LC}-\frac{R^2}{2L^2}}
 \]
 gegeben. Mit den gegebenen Werten f\"ur $L$ und $C$ und dem im ersten Versuchsteil bestimmten D\"ampfungswiderstand
 $R_{eff}$ ergibt sich 
 \[
-f_{res} = ...\,Hz
+f_{res} = 34.5\,Hz
 \]
 Die G\"ute $q$ des eines Schwingkreises kann mit Formel \ref{} zu
 \[
-q = \frac{1}{R} \sqrt{\frac{L}{C}} = ... 
+q = \frac{1}{R} \sqrt{\frac{L}{C}} = 3.93
 \]
 berechnet werden. Die Breite der Resonanzkurve sollte nach Formel \ref{}
 \[
-f_+ - f_- \approx \frac{R}{L}
+f_+ - f_- \approx \frac{R}{L} \approx 11.6\,kHz
 \]
-betragen.
+betragen. Es ist zu erkennen, dass, bei der Berechnung von Resonanzfrequenz und G\"ute, die experimentell ermittelten mit den aus den Parametern des Schwingkreises berechneten vertr\"aglich ist. Nur bei der Bestimmung der Breite der Resonanzkurve entstehen abweichungen, welche auf Ablesefehler zur\"uck gef\"uhrt werden k\"onnen. 
 \subsection{Bestimmung der Phasenverschiebung}
 Im letzten Versuchsteil soll die Phasenbeziehung von Kondensatorspannung und der Erregerspannung bei verschiedenen Anregungsfrequenzen untersucht werden. Mit den Daten aus Tabelle \ref{} wird dieser Zusammenhang in Abbildung \ref{} graphisch dargestellt. Der Resonanzfall tritt bei $\Delta \varphi = 90^\circ$ auf. Die Frequenzen bei denen $\Delta \varphi$ genau $45^circ$ und $135^\circ$ ist, werden als $f_1$ und $f_2$ bezeichnet. Aus dem Diagramm wurden diese Frequenzen wie folgt bestimmt:
 \begin{itemize}
-\item $f_{res} = ...\,kHz$
-\item $f_{1} = ...\,kHz$
-\item $f_{2} = ...\,kHz$
+\item $f_{res} = 33.9\,kHz$
+\item $f_{1} = 29.9\,kHz$
+\item $f_{2} = 37.8\,kHz$
 \end{itemize}
 Mit Formel \ref{} k\"onnen $f_1$ und $f_2$ auch aus den Gr\"o\ss en $R$,$L$ und $C$ berechnet werden.
 \[
@@ -171,8 +182,9 @@ f_{1,2} = \frac{1}{2 \pi} (\pm \frac{R}{2L} \sqrt{R^2/4L^2 + 1/LC}
 \]
 Es ergeben sich folgende Werte:
 \begin{itemize}
-\item $f_1 = ...\,kHz$
-\item $f_2 = ...\,kHz$
+\item $f_1 = 33.7\,kHz$
+\item $f_2 = 35.5\,kHz$
+Die Unterschiede der Resonanzfrquenz zu den zuvor bestimmten ist auf die Ungenauigkeit beim Ablesen aus dem Diagramm zur\"uckzuf\"uren. Dies gilt auch f\"ur $f_1$ und $f_2$
 \end{itemize}
 \section{Diskussion}
 In diesem Versuch ist bei den meisten Versuchsteilen eine sehr hohe Genauigkeit möglich. So sind sowohl der Signalgenerator als auch das Speicheroszilloskop digital. Da die Werte der Amplituden nicht aus einem Plot des Oszilloskops abgelesen, sondern mit einem Algorithmus aus den Rohdaten ermittelt wurden, gibt es hier keinen Ablesefehler. Die Messfühler waren hochohmig, der Fehler durch sie ist daher vernachlässigbar gering. Lediglich beim Ablesen des Widerstandes, der zum aperiodischen Grenzfalls führt, beträgt die Messungenauigkeit $\pm$ 20 Ohm.
