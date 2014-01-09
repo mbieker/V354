@@ -54,7 +54,7 @@ I(t) = A e^{- \frac{t}{\sqrt{LC}}}.
 \section{Aufbau und Durchf\"{u}hrung}
 Die Schaltung des elektrischen Schwingkreises ist fest aufgebaut. Es stehen mehrere Widerstände zur Verfügung, davon ein Potentiometer. Ein Signalgenerator wird benutzt, um das System anzuregen. Für die Messungen wird ein digitales Speicheroszilloskop verwendet.
 \subsection{Untersuchung der Zeitabhängigkeit der Amplitude}
-Um die Zeitabhängigkeit der Amplitude zu untersuchen, wird der elektrische Schwingkreis mit einzelnen Nadelimpulsen angeregt. Das System beginnt zu Schwingen. Mit dem hochohmigen Tastkopf wird die Spannung des Kondensators auf die Y-Ablenkung des Speicheroszilloskops gegeben. Der entstehende Graph soll für die Auswertung gespeichert werden. Bei diesem Versuchsteil ist der kleinere Widerstand zu verwenden. Der Versuchsaufbau dieses Versuchsteiles ist in Abbildung \ref{S1} zu sehen.
+Um die Zeitabhängigkeit der Amplitude zu untersuchen, wird der elektrische Schwingkreis mit einzelnen Nadelimpulsen angeregt. Das System beginnt zu Schwingen. Mit dem hochohmigen Tastkopf wird die Spannung des Kondensators auf die Y-Ablenkung des Speicheroszilloskops gegeben. Der entstehende Graph sowie die Messwerte sollen für die Auswertung gespeichert werden. Bei diesem Versuchsteil ist der kleinere Widerstand zu verwenden. Der Versuchsaufbau dieses Versuchsteiles ist in Abbildung \ref{S1} zu sehen.
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.7]{Aufbau1.png}
@@ -65,6 +65,7 @@ Um die Zeitabhängigkeit der Amplitude zu untersuchen, wird der elektrische Schw
 In diesem Versuchsteil soll der Dämpfungswiderstand $R_{ap}$, bei dem die Schwingung den aperiodische Grenzfall annimmt, ermittelt werden. Dazu wird in der Schaltung aus Abbildung \ref{S1} lediglich der konstante Widerstand gegen das Potentiometer ausgetauscht. Das Potentiometer wird nun in maximale Stellung gebracht, der Kriechfall sollte zu erkennen sein. Nun wird der Widerstand solange verändert, bis man zwischen dem Kriech- und Schwingfall den aperiodischen Grenzfall möglichst gut angenähert hat.
 \subsection{Messung der Frequenzabhängigkeit der Kondensatorspannung}
 In dieser Messung wird die Frequenz des Erregers verändert und dabei die Auswirkung auf die maximale Kondensatorspannung untersucht. Da der verwendete Tastkopf auf einen spezifischen Frequenzgang besitzt, muss auch die Erregerspannung gemessen werden. In der Auswertung wird dann der Quotient $U_C / U_{Er}$ ermittelt.
+Es sollen mindestens zehn Messwerte genommen werden. Für eine bessere Auswertung werden in der Nähe des Maximums der Kondensatorspannung Messwerte mit geringem Abstand aufgezeichnet, während die Messwerte außerhalb dieses Bereiches weiter von einander entfernt sind.
 Dieser Versuchsteil wird mit Hilfe der Schaltung in Abbildung \ref{S2} durchgeführt. Dabei soll der größere konstante Widerstand verwendet werden.
 \begin{figure}[h]
 \centering
@@ -73,7 +74,7 @@ Dieser Versuchsteil wird mit Hilfe der Schaltung in Abbildung \ref{S2} durchgef�
 \label{S2}
 \end{figure}
 \subsection{Bestimmung der Frequenzabhängigkeit der Phase}
-Zur Bestimmung der Phasendifferenz zwischen der Generator- und der Kondensatorspannung werden beide Spannungen auf die Y-Achse des Speicheroszilloskops gelegt. Bei einer Phasenverschiebung mit $\varphi \neq 0$ sind die beiden Kurven so gut zu erkennen. Die Phasenverschiebung wird dann mit Hilfe der Nulldurchgänge der Schwingungen ermittelt. Dafür müssen die beiden Sinuskurven allerdings symmetrisch zur x-Achse liegen. Die verwendete Schaltung ist der Abbildung \ref{S3} zu entnehmen.
+Zur Bestimmung der Phasendifferenz zwischen der Generator- und der Kondensatorspannung werden beide Spannungen auf die Y-Achse des Speicheroszilloskops gelegt. Bei einer Phasenverschiebung mit $\varphi \neq 0$ sind die beiden Kurven so gut zu erkennen. Die Phasenverschiebung wird dann mit Hilfe der Nulldurchgänge der Schwingungen ermittelt. Dafür müssen die beiden Sinuskurven allerdings symmetrisch zur x-Achse liegen. Für eine genauere Auswertung werden die gesamten Daten gespeichert und mit Algorithmen ausgewertet werden, anstatt die Werte einfach abzulesen. Die verwendete Schaltung ist der Abbildung \ref{S3} zu entnehmen.
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.7]{Aufbau3.png}
@@ -96,6 +97,7 @@ Durch eine lineare Regression ergeben sich folgende Werte:
 \item $\frac{1}{RC} = ....\,\frac{1}{s}$
 \end{itemize}
 \subsection{Bestimmung des Grenzwiderstands}
+Zur Bestimmung des Dämpfungswiderstands, der zum aperiodischen Grenzfall führt, wurde das Potentiometer zunächst auf sein Maximum eingestellt. Zu sehen war ein Kriechfall. Dann wurde der Widerstand vorsichtig verkleinert. Nach Erscheinen eines Überschwingens war der Widerstand bereits zu klein. So genau wie möglich wurde dann der Grenzwiderstand angenähert. Er liegt bei $(3220 \pm 20) \, \Omega$. Der Zustand der Schwingung (aperiodischer Grenzfall) ist gut in Abbildung EINFÜGEN zu erkennen. 
 \subsection{Bestimmung der Resonanzfrequenz}
 \subsection{Bestimmung der Phasenverschiebung}
 
