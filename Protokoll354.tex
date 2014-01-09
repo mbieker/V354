@@ -85,20 +85,35 @@ Zur Bestimmung der Phasendifferenz zwischen der Generator- und der Kondensatorsp
 
 
 \section{Auswertung}
+Alle Fehler wurden, sofern nicht anders angegeben, mit python uncertainties ermittelt.
 \subsection{Bestimmung der Zeitkonstante}
 Abbildung \ref{abb1} zeigt den Verlauf der Spannung $U_C$ zwischen den Platten des Kondensators unmittelbar nach dem Abschalten der Aufladespannung.
-
-In der Tabelle \ref{mtab1} finden sich die lokalen Extrema des Spannungsverlaufs. Abbildung \ref{mabb2} ist eine halb-logarithmische Darstellung dieser Werte. In diesem Diagramm liegen die Messpunkte entlang der Geraden
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.7]{Abb/abb1.png}
+\caption{Spannung des Kondensators nach Abschalten der Aufladespannung}
+\label{abb1}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.7]{Abb/abb2.png}
+\caption{Halblogarithmische Darstellung von Abb \ref{abb1}}
+\label{abb2}
+\end{figure}
+In der Tabelle \ref{mtab1} befinden sich die lokalen Extrema des Spannungsverlaufs. Abbildung \ref{abb2} ist eine halb-logarithmische Darstellung dieser Werte. In diesem Diagramm liegen die Messpunkte entlang der Geraden
 \begin{equation}
 ln(\frac{U_C}{V}) = -\frac{1}{RC}\cdot t + ln(U_0).
 \end{equation}
 Durch eine lineare Regression ergeben sich folgende Werte:
 \begin{itemize}
-\item $\frac{1}{RC} = ....\,\frac{1}{s}$
+\item $\frac{1}{RC} = (-5820\pm60)\,\frac{1}{s}$
+\item $T_{ex} = RC = (0.0001719\pm0.0000019)\, s$
+\item $R = \frac{2L}{T_{ex}} = (117.6\pm1.3)\, \Omega$.
 \end{itemize}
+Der Fehler von $\frac{1}{RC}$ folgt aus der linearen Regression.
 \subsection{Bestimmung des Grenzwiderstands}
 Zur Bestimmung des Dämpfungswiderstands, der zum aperiodischen Grenzfall führt, wurde das Potentiometer zunächst auf sein Maximum eingestellt. Zu sehen war ein Kriechfall. Dann wurde der Widerstand vorsichtig verkleinert. Nach Erscheinen eines Überschwingens war der Widerstand bereits zu klein. So genau wie möglich wurde dann der Grenzwiderstand angenähert. Er liegt bei $(3220 \pm 20) \, \Omega$. Der Zustand der Schwingung (aperiodischer Grenzfall) ist gut in Abbildung \ref{apgrenzfall} zu erkennen. Aus den Größen L und C lässt sich mit der Formel EINFÜGEN der theoretischen Wert berechnen: $(4396\pm7)\,\Omega$. Die Abweichung des experimentell bestimmten Wertes zum Theoriewert lässt sich mit der Ungenauigkeit der Messung erklären. Es ist nur grob abzuschätzen, wann der aperiodische Grenzfall eintritt. Individuelle Einstellungen am Oszilloskop erschweren dieses Problem.
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{apgrenzfall.png}
 \caption{Manuelle Einstellung des aperiodischen Grenzfalls}
