@@ -46,11 +46,39 @@ Für den Schwingfall lautet die Lösung
 \label{LSG1}
 I(t) = A_0 e^{-2 \pi \mu t} cos (2 \pi \nu t + \eta).
 \end{equation}
-Für den aperiodischen Grenzfall lautet sie
+Dabei ist die Schwingung nach der Zeit
+\begin{equation}
+\label{Tex}
+T_{ex} = \frac{2L}{R}
+\end{equation}
+auf den $e$-ten der Amplitude abgeklungen.
+Für den aperiodischen Grenzfall lautet die Lösung
 \begin{equation}
 \label{LSG2}
 I(t) = A e^{- \frac{t}{\sqrt{LC}}}.
 \end{equation}
+Um einen theoretischen Dämpfungswiderstand am aperiodischen Grenzfall zu berechnen, wird
+\begin{equation}
+\label{aper}
+R_{ApThe} = \sqrt{\frac{4L}{C}}
+\end{equation} verwendet.
+Der theoretische Wert einer Resonanzfrequenz ist durch
+\begin{equation}
+f_res = \frac1{2\pi} \sqrt{\frac{1}{LC}-\frac{R^2}{2L^2}}
+\label{frequenz}
+\end{equation}
+Die Güte eines Schwingkreises kann mit
+\begin{equation}
+q = \frac{1}{R} \sqrt{\frac{L}{C}}
+\label{gute}
+\end{equation}
+errechnet werden.
+Die Breite einer Resonanzkurve ist mit
+\begin{equation}
+f_+ - f_- \approx \frac{R}{L}
+\label{breite}
+\end{equation}
+gegeben.
 \section{Aufbau und Durchf\"{u}hrung}
 Die Schaltung des elektrischen Schwingkreises ist fest aufgebaut. Es stehen mehrere Widerstände zur Verfügung, davon ein Potentiometer. Ein Signalgenerator wird benutzt, um das System anzuregen. Für die Messungen wird ein digitales Speicheroszilloskop verwendet.
 \subsection{Untersuchung der Zeitabhängigkeit der Amplitude}
@@ -112,6 +140,7 @@ Durch eine lineare Regression ergeben sich folgende Werte:
 \end{itemize}
 Der in der Schaltung verwendete Widerstand hat eine G\"o\ss e von $(48.1 \pm 0.1)\,\Omega$. Dieser Unterschied kann dadurch erkl\"art werden, dass der experimentell bestimmte Wert des D\"ampfungswiderstands auch Widerst\"ande in den Leitungen und vor allem in den Wicklungen der Spule ber\"ucksichtigt.
 \subsection{Bestimmung des Grenzwiderstands}
+
 Zur Bestimmung des Dämpfungswiderstands, der zum aperiodischen Grenzfall führt, wurde das Potentiometer zunächst auf sein Maximum eingestellt. Zu sehen war ein Kriechfall. Dann wurde der Widerstand vorsichtig verkleinert. Nach Erscheinen eines Überschwingens war der Widerstand bereits zu klein. So genau wie möglich wurde dann der Grenzwiderstand angenähert. Er liegt bei 
 \[
 R_{exp}(3220 \pm 20) \, \Omega.
@@ -121,6 +150,7 @@ R_{exp}(3220 \pm 20) \, \Omega.
 R_{th} = (4396\pm7)\,\Omega.
 \]
  Die Abweichung des experimentell bestimmten Wertes zum Theoriewert lässt sich mit der Ungenauigkeit der Messung erklären. Es ist nur grob abzuschätzen, wann der aperiodische Grenzfall eintritt. Individuelle Einstellungen am Oszilloskop erschweren dieses Problem. Auch kann hier analog zum ersten Versuchsteil argumentiert Werden. Da auch in den anderen Bauteilen Widerstande auftreten, ist der am Potentiometer gemessene Widerstand geringer als der berechnete Grenzwiderstand.
+
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{apgrenzfall.png}
@@ -150,7 +180,7 @@ Die Breite der Resoanzkurve ist also
 f_+ - f_- \approx 8.7\,kHz. 
 \]
 \noindent
-Der theoretische Wert der Resonanzfrequenz ist durch Formel X durch
+Der theoretische Wert der Resonanzfrequenz ist durch Formel \ref{frequenz} durch
 \[
 f_{res} = \frac1{2\pi} \sqrt{\frac{1}{LC}-\frac{R^2}{2L^2}}
 \]
@@ -159,11 +189,11 @@ $R_{eff}$ ergibt sich
 \[
 f_{res} = 34.5\,Hz
 \]
-Die G\"ute $q$ des eines Schwingkreises kann mit Formel \ref{} zu
+Die G\"ute $q$ eines Schwingkreises kann mit Formel \ref{gute} zu
 \[
 q = \frac{1}{R} \sqrt{\frac{L}{C}} = 3.93
 \]
-berechnet werden. Die Breite der Resonanzkurve sollte nach Formel \ref{}
+berechnet werden. Die Breite der Resonanzkurve sollte nach Formel \ref{breite}
 \[
 f_+ - f_- \approx \frac{R}{L} \approx 11.6\,kHz
 \]
