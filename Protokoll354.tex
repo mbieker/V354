@@ -99,10 +99,44 @@ Durch eine lineare Regression ergeben sich folgende Werte:
 \subsection{Bestimmung des Grenzwiderstands}
 Zur Bestimmung des Dämpfungswiderstands, der zum aperiodischen Grenzfall führt, wurde das Potentiometer zunächst auf sein Maximum eingestellt. Zu sehen war ein Kriechfall. Dann wurde der Widerstand vorsichtig verkleinert. Nach Erscheinen eines Überschwingens war der Widerstand bereits zu klein. So genau wie möglich wurde dann der Grenzwiderstand angenähert. Er liegt bei $(3220 \pm 20) \, \Omega$. Der Zustand der Schwingung (aperiodischer Grenzfall) ist gut in Abbildung EINFÜGEN zu erkennen. 
 \subsection{Bestimmung der Resonanzfrequenz}
+In Abbildung \ref{resonanz1} ist der Quotient aus der Kondensatorspannung $U_C$ und der Erregerspannung $U_0$ gegen die Erregerfrequenz $f$ aufgetragen. Das Maxmimum im Resonanzfall ist deutlich zu erkennen. F\"ur die Resonanzzfrequenz ergibt sich somit:
+\[
+	f_{res} = 33.7\,kHz.
+\]
+Mit Formel \ref{guete} ist der G\"uetefaktor eines Schwingkreises durch den Wert des Quotienten $\frac{U_C}{U_0}$ im Resonanzfall gegeben. Dieser betr\"agt
+\[
+q =  3.9
+\]
+Zur Bestimmung der Sch\"arfe der Resonanz wurde in dem Diagramm bei 
+\[
+\frac{U_C}{U_0} = \frac{q}{\sqrt{2}}
+\]
+eine Gerade einf\"uegt. Die Frequenzen $f_+$ und $f_-$ bei denen $\frac{U_C}{U_0}$ auf diesen Wert abgefallen ist, k\"onnen somit wie folgt bestimmt werden:
+\begin{itemize}
+\item $f_- = kHz$
+\item $f_+ = kHz$
+\end{itemize}
+
+\noindent
+Der theoretische Wert der Resanzfrequenz ist durch Fomel X durch
+\[
+f_res = \frac1{2\pi} \sqrt{\frac{1}{LC}-\frac{R^2}{2L^2}}
+\]
+gegeben. Mit den gegebenen Werten f\"ur $L$ und $C$ und dem im ersten Versuchsteil bestimmten D\"ampfungswiderstand
+$R_{eff}$ ergibt sich 
+\[
+f_{res} = ...\,Hz
+\]
+Die G\"ute $q$ des eines Schwingkreises kann mit Formel \ref{} zu
+\[
+q = \frac{1}{R} \sqrt{\frac{L}{C}} = ... 
+\]
+berechnet werden. Die Breite der Resonanzkurve sollte nach Formel \ref{}
+\[
+f_+ - f_- \approx \frac{R}{L}
+\]
+betragen.
 \subsection{Bestimmung der Phasenverschiebung}
-
-
-
 \section{Diskussion}
 In diesem Versuch ist bei den meisten Versuchsteilen eine sehr hohe Genauigkeit möglich. So sind sowohl der Signalgenerator als auch das Speicheroszilloskop digital. Da die Werte der Amplituden nicht aus einem Plot des Oszilloskops abgelesen, sondern mit einem Algorithmus aus den Rohdaten ermittelt wurden, gibt es hier keinen Ablesefehler. Die Messfühler waren hochohmig, der Fehler durch sie ist daher vernachlässigbar gering. Lediglich beim Ablesen des Widerstandes, der zum aperiodischen Grenzfalls führt, beträgt die Messungenauigkeit $\pm$ 20 Ohm.
 \section{Literatur- und Abbildungsverzeichnis}
